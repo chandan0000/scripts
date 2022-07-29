@@ -17,9 +17,7 @@ def get_battery() -> tuple[bool, int]:
         .split()
     )
 
-    on_ac = True
-    if p[2] == "Discharging,":
-        on_ac = False
+    on_ac = p[2] != "Discharging,"
     bat = int(p[3][:-2])
     return on_ac, bat
 

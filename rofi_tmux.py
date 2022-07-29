@@ -6,12 +6,11 @@ terminal = "alacritty"
 
 def get_sessions():
 
-    sessions: list[str] = (
+    return (
         run("tmux list-session -F #S".split(), capture_output=True)
         .stdout.decode()
         .split()
     )
-    return sessions
 
 
 def get_choice(sessions):
